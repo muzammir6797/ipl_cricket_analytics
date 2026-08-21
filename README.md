@@ -1,2 +1,2 @@
-\## ipl\_analytics
+\## IPL\_ANALYTICS\_DATA
 
