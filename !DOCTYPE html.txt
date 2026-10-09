@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<HTML>
+	<head>
+		<title>table data</title>
+	<table border="1">
+<tr>
+  <tr>name</tr>
+  <tr>ages</tr>
+  <tr>country</tr>
+</tr>
+<tr>

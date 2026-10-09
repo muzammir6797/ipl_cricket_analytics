@@ -1,0 +1,48 @@
+select * from matches;
+
+rules of sql :
+	1) SQL command should be capital
+	2) one statement,one semicolon (ends with ;)
+	3) line breaks are free
+	4) comments with two dashes
+
+select * FROM matches LIMIT 5;
+
+select city FROM matches LIMIT 5;
+
+select distinct city FROM matches; (to remove duplicates)
+
+SELECT match_id, season, match_winner FROM matches
+WHERE match_winner='Chennai Super Kings';
+
+SELECT match_id, season, match_winner FROM matches
+WHERE match_winner='Chennai Super Kings' limit=5;
+
+
+SELECT match_id FROM matches
+where season='2019' or result='win'
+limit 5;
+
+SELECT match_id FROM matches
+where season='2019' AND result='win'
+limit 5;
+
+
+
+(Which ground has hosted the most matches)
+SELECT venue_clean, COUNT(*) AS matches
+FROM matches_clean
+GROUP BY venue_clean
+ORDER BY matches DESC
+LIMIT 5;
+SELECT m.venue_clean,
+COUNT(DISTINCT m.match_id) AS matches,
+ROUND(AVG(i.runs),1) AS avg_innings_score
+FROM matches_clean m
+JOIN v_innings i ON i.match_id = m.match_id
+GROUP BY m.venue_clean
+HAVING matches >= 25
+ORDER BY avg_innings_score DESC
+LIMIT 5;
+
+
